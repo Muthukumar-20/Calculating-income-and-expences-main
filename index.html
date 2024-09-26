@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "bookmark-purple": "#5267DF",
+            "bookmark-red": "#FA5959",
+            "bookmark-blue": "#242A45",
+            "bookmark-grey": "#9194A2",
+            "bookmark-white": "#f7f7f7",
+          },
+        },
+        fontFamily: {
+          Righteous: ["Righteous,sans-serif"],
+          DMSeriff: ["DM Serif Text,sans-serif"],
+        },
+        container: {
+          center: true,
+          padding: "1rem",
+          screens: {
+            lg: "1124px",
+            xl: "1124px",
+            "2xl": "1124px",
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Righteous&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="relative sm:h-[100vh] bg-[#3A6D8C]">
+
+  <div id="income-modal"
+    class="z-20 border-red-700 flex justify-center font-Righteous absolute h-[100%] w-[100%]  invisible backdrop-blur-sm bg-white/30">
+    <label
+      class=" justify-center rounded-md bg-white p-6 text-black shadow-2xl transition max-h-96 absolute top-[20%] ">
+      <h3 class="text-lg font-bold  ">Income statement</h3>
+
+      <p class="">Your income:</p> <input id="income" type="number" class="border border-black">
+
+      <p class="">Description:</p>
+      <textarea id="description" class=" border h-32 w-72 border-black"></textarea>
+      <div>
+        <button id="accept" type="button"
+          class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I
+          Accept</button>
+        <button id="decline" type="button"
+          class=" py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
+      </div>
+
+    </label>
+  </div>
+
+  <div id="expences-modal"
+    class="z-30 border-red-700 flex justify-center font-Righteous absolute  h-[100%] w-[100%] invisible backdrop-blur-sm bg-white/30">
+    <label
+      class=" justify-center rounded-md bg-white p-6 text-black shadow-2xl transition max-h-96 absolute top-[20%] ">
+      <h3 class="text-lg font-bold  ">Expences statement</h3>
+
+      <p class="">Your expences:</p> <input id="expences" type="number" class="border border-black">
+
+      <p class="">Description:</p>
+      <textarea id="descriptions" class=" border h-32 w-72 border-black"></textarea>
+      <div>
+        <button id="accepted" type="button"
+          class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I
+          Accept</button>
+        <button id="declined" type="button"
+          class=" py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
+      </div>
+    </label>
+  </div>
+
+
+
+  <div class="font-Righteous bg-  flex justify-center">
+
+    <div class="flex flex-col h-[80dvh] rounded-xl sm:w-1/2 my-20 bg-white shadow-lg overflow-hidden">
+
+
+      <section class="flex flex-col ">
+
+        <div class="flex flex-col sm:flex-row justify-center items-center bg-[#001F3F] text-white h-20">
+          <div class="flex gap-5 w-1/2 sm:h-[100%] items-center">
+            <p class="text-[18px] sm:text-xl w-fit">Total networth:</p>
+            <div id="total-value" class=" h-10 text-center flex flex-col justify-center sm:text-xl text-blue-700"></div>
+          </div>
+
+          <header class="flex h-6 sm:h-[100%] sm:items-center sm:flex-col justify-center sm:pt-5">
+            <div class="">
+              <input type="radio" id="all" name="radiobutton" value="all" />
+              <label>All</label>
+            <input type="radio" id="income-redo" name="radiobutton" value="income" />
+                <label>Income</label>
+                  <input type="radio" id="expen-redo" name="radiobutton" value="expences" />
+                  <label>Expences</label><br><br>
+            </div>
+          </header>
+        </div>
+<div class="bg-black text-white ">
+        <section class="flex h-12 justify-between sm:justify-around px-4 items-center gap-8">
+          <div class="flex items-center">
+            <p class="font-bold text-xl">Add Income:</p>
+            <label for="tw-modal" class="">
+              <i id="income-plus" class="text-4xl fa-solid fa-square-plus"></i>
+            </label>
+          </div>
+
+          <!--Total income-->
+          <p class="total-income border bg-gray-300 text-green-700 h-10 sm:w-44 w-36 rounded-lg text-center">0</p>
+
+        </section>
+
+
+
+        <section class="flex  h-12 justify-around items-center gap-8 px-4">
+          <div class="flex items-center">
+            <p class=" font-bold text-xl ">Add Expences:</p>
+            <label for="tw-modal" id="labelded" class="">
+              <i id="expences-plus" class="text-4xl fa-solid fa-square-plus "></i>
+            </label>
+          </div>
+          <!--Total expences-->
+          <p class=" total-expences border text-center bg-gray-300 text-red-800 h-10 sm:w-44 w-36 rounded-lg ">
+            0</p>
+
+        </section>
+
+      </div>
+      </section>
+
+      <div id="list" class="border h-[100%] text-center  border-black">
+
+        
+
+      </div>
+
+    </div>
+  </div>
+</body>
+<script src="script.js"></script>
+
+</html>
