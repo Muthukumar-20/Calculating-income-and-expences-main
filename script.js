@@ -89,7 +89,7 @@ accept.addEventListener("click", function () {
   icon_deleting.classList.add("fa-solid", "fa-trash", "cursor-pointer");
   span.appendChild(icon_edited);
   span.appendChild(icon_deleting);
-  span.classList.add("py-2", "justify-around", "flex","border-b-4","drop-shadow-xl");
+  span.classList.add("py-2", "justify-around", "flex","border-b-4","drop-shadow-md","shadow-green-700","border-green-200");
   let income_list = document.querySelectorAll(".income-value");
   total = 0;
 
@@ -203,7 +203,7 @@ let tot = accepted.addEventListener("click", function () {
   let dest = descriptions.value;
   prat.innerHTML = dest;
   spand.appendChild(prat);
-  spand.classList.add("expences-list","flex","justify-around","border-b-4","drop-shadow-xl","py-2");
+  spand.classList.add("expences-list","flex","justify-around","border-b-4","drop-shadow-md","py-2","shadow-red-700","border-red-200");
 
   let expences_list = document.querySelectorAll(".expences-value");
   let total = 0;
